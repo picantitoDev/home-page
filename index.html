@@ -3,29 +3,38 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    \
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="modern-normalize.css" />
+    <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
     <title>Document</title>
   </head>
   <body>
-    <div class="container">
-      <div class="hero-section">
-        <div class="img-container">
-          <img src="header-image.jpeg" alt="" />
-          <h1 class="my-name">Piero Arturo</h1>
-        </div>
-        <div class="hero-content">
-          <h1 class="hero-title">About Me</h1>
-          <p class="hero-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur.
-          </p>
-        </div>
+    <div class="hero__background"></div>
+    <header class="hero container">
+      <div class="hero__img-container--desktop">
+        <img src="header-image.jpeg" alt="" class="hero__img--desktop" />
+        <h1 class="hero__name">Dominik Perusko</h1>
       </div>
-    </div>
+      <div class="hero__content">
+        <div class="hero__img-container">
+          <img src="header-image.jpeg" alt="" class="hero__img" />
+          <h1 class="hero__name">Dominik Perusko</h1>
+        </div>
+        <h1 class="hero__title">About me</h1>
+        <p class="hero__text">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam similique
+          temporibus provident nulla doloremque aliquam deserunt, commodi iusto,
+          inventore, eum ipsum odit corrupti maxime necessitatibus? Deleniti
+          dolor dolores ipsam, ipsa molestias officiis similique asperiores
+          nobis, est necessitatibus esse nulla quo molestiae fuga soluta.
+        </p>
+      </div>
+    </header>
   </body>
 </html>

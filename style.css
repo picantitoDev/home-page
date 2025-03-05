@@ -1,60 +1,18 @@
-/* Global Reset */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+:root {
+  --gray-text: rgb(86, 86, 86);
+  --background-highlight: rgb(8, 145, 178);
 }
 
-* {
-  margin: 0;
-}
+/*** TYPOGRAPHY & COLORS ***/
 
 body {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
   line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
-p {
-  text-wrap: pretty;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  text-wrap: balance;
-}
-
-#root,
-#__next {
-  isolation: isolate;
+  overflow: hidden visible;
 }
 
 h1,
@@ -65,65 +23,190 @@ h2 {
   font-style: normal;
 }
 
-p {
-  font-family: "Roboto", serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-
-/*Hero Section*/
-body {
-  background-color: white;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 16px;
-}
-
-.img-container {
-  position: relative;
-  flex: 0 0 40%;
-  overflow: hidden;
-  box-shadow: 0px 0 15px rgba(0, 0, 0, 0.1);
-}
-
-.my-name {
-  text-align: center;
-  width: 100%;
-  font-size: 3rem;
-  color: #fff;
-  position: absolute;
-  bottom: 0;
-  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
-}
-
-.hero-content {
-  min-width: 60%;
-  margin-left: -4px;
-  min-height: 450px;
-  padding: 2rem;
-  background-color: white;
-  box-shadow: 0px 0 15px rgba(0, 0, 0, 0.1);
-}
-
-.hero-section {
-  display: flex;
-  align-items: center;
-}
-
-img {
-  background-image: url("header-image.jpeg");
+.hero__img,
+.hero__img--desktop {
   width: 100%;
   height: auto;
-  object-fit: cover;
+  box-shadow: 0px 0 15px rgba(0, 0, 0, 0.5);
 }
 
-.hero-title {
+.hero__name {
+  font-size: clamp(2rem, 15vw, 9rem);
+  line-height: 1.2;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
   font-size: min(12vw, 4rem);
 }
 
-.hero-text {
+h2 {
+  font-size: min(6vw, 2rem);
+}
+
+.hero__background {
+  background-color: var(--background-highlight);
+}
+
+.hero__text {
+  color: var(--gray-text);
+}
+
+.hero__text,
+.footer__text {
   font-size: min(6vw, 1.5rem);
+}
+
+/*** LAYOUT ***/
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 min(5vw, 3rem);
+  max-width: 1200px;
+}
+
+.hero__background {
+  position: absolute;
+  z-index: -1;
+  height: 120vw;
+  width: 200vw;
+  transform: translateX(-50vw) translateY(-50vw) rotate(-25deg);
+}
+
+.hero.container {
+  margin-top: 2rem;
+}
+
+.hero__img-container--desktop {
+  display: none;
+}
+
+.hero__img-container {
+  position: relative;
+  padding: 1rem;
+}
+
+.hero__name {
+  position: absolute;
+  bottom: 1rem;
+  left: 2rem;
+  text-align: left;
+}
+
+h1 {
+  text-align: center;
+}
+
+/*** BREAKPOINTS ***/
+
+@media (max-width: 400px) {
+  .portfolio-item__text {
+    min-height: 8rem;
+  }
+}
+
+@media (min-width: 800px) {
+  .container {
+    margin: 4rem;
+  }
+
+  .hero.container {
+    margin-top: 9rem;
+  }
+
+  .hero__background {
+    height: 5000px;
+    transform: translateX(-500px) translateY(-4500px) rotate(-15deg);
+  }
+
+  .hero {
+    padding: 6rem 2rem 2rem 2rem;
+    display: block;
+    background-color: white;
+    box-shadow: 0px 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .hero__img-container {
+    padding: 0;
+    width: 50%;
+    max-width: 50%;
+    float: left;
+    margin-left: -4rem;
+    margin-top: -12rem;
+    margin-right: 1rem;
+  }
+
+  .hero__name {
+    font-size: 4rem;
+    bottom: auto;
+    top: 0.5rem;
+    left: 80%;
+    width: 70vw;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .hero__links {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    justify-content: end;
+  }
+}
+
+@media (min-width: 1150px) {
+  .hero.container {
+    margin-top: 4rem;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .hero {
+    background: none;
+    box-shadow: none;
+  }
+
+  .hero__content {
+    flex: 1.1;
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0px 0 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .hero__title {
+    text-align: left;
+  }
+
+  .hero__img-container--desktop {
+    flex: 1;
+    display: block;
+    position: relative;
+    max-width: 450px;
+  }
+
+  .hero__img-container {
+    display: none;
+  }
+
+  .hero__name {
+    font-size: 3rem;
+    top: auto;
+    bottom: 1rem;
+    left: 2rem;
+  }
 }
