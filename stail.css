@@ -166,9 +166,13 @@ header {
 }
 
 /* 📱 Estilos para tablet (máximo 1023px) */
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   .container {
     margin: 4rem;
+  }
+
+  .card {
+    height: 52rem;
   }
 
   .hero-section {
@@ -208,6 +212,10 @@ header {
 @media (max-width: 768px) {
   .hero-title {
     text-align: center;
+  }
+
+  .card {
+    height: 35rem;
   }
 
   main {
